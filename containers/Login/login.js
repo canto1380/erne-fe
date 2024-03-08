@@ -22,7 +22,7 @@ const Login = () => {
       if (validaEmail(values.email) && validaClave(values.clave)) {
         login(values)
       } else {
-        message.info('Datos incorrectos. Ingrese un mail y clave valida.', 3)
+        message.info('Datos incorrectos. Ingrese un mail y clave valida.', 4)
       }
     } catch (error) {
       message.info(error, 3)
