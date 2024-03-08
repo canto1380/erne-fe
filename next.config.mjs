@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  env: {
+    REACT_APP_API: 'http://localhost:4000',
+  },
+}
 
-export default nextConfig;
+export default nextConfig

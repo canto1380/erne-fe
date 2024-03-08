@@ -1,11 +1,11 @@
 import React from 'react';
 
-const MenuAdmin = () => {
+const index = () => {
   return (
     <div>
-      Menu admin
+      Container admin
     </div>
   );
 };
 
-export default MenuAdmin;
+export default index;

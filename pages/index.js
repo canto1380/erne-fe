@@ -1,10 +1,18 @@
+import { useContext, useEffect } from 'react'
 import Layout from '../components/Layout/Layout'
-import Login from '../containers/Login/login'
+import Title from '../components/Titulo'
+import { User } from '../context/userProvider'
+import { validaToken } from '../utils/validations/validaciones'
 
 export default function Home({}) {
+  const { state } = useContext(User)
+
+  useEffect(() => {
+    validaToken(state)
+  }, [state])
   return (
     <Layout>
-      <Login />
+      <Title title='inicio' />
     </Layout>
   )
 }
