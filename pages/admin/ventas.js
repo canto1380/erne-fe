@@ -1,9 +1,9 @@
-const ventas = () => {
+const Ventas = () => {
   return (
     <div>
-      <p>ventas</p>
+      <p>Ventas</p>
     </div>
   )
 }
 
-export default ventas
+export default Ventas

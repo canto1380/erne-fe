@@ -10,11 +10,10 @@ const Login = () => {
     validaToken(state)
   }, [state])
   return (
-    <p>
-      asdas
-      {/* <LoginContainer /> */}
-    </p>
+    <>
+      <LoginContainer />
+    </>
   )
 }
 
-export default  Login
+export default Login
