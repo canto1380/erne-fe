@@ -1,9 +1,9 @@
 import { useContext, useEffect } from 'react'
 import { User } from '../context/userProvider'
-import Login from '../containers/Login/Login.js'
+import LoginContainer from '../containers/Login/index.js'
 import { validaToken } from '../utils/validations/validaciones'
 
-const Login = () => {
+const login = () => {
   const { state } = useContext(User)
 
   useEffect(() => {
@@ -17,4 +17,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default login
