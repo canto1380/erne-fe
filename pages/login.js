@@ -1,7 +1,6 @@
 import { useContext, useEffect } from 'react'
 import { User } from '../context/userProvider'
-import LoginContainer from '../containers/Login/Login'
-import { redirectBase } from '../helpers/redirect'
+import LoginContainer from '../containers/Login/Login.js'
 import { validaToken } from '../utils/validations/validaciones'
 
 const Login = () => {
@@ -11,9 +10,10 @@ const Login = () => {
     validaToken(state)
   }, [state])
   return (
-    <>
-      <LoginContainer />
-    </>
+    <p>
+      asdas
+      {/* <LoginContainer /> */}
+    </p>
   )
 }
 

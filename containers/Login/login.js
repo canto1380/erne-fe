@@ -7,7 +7,7 @@ import styles from './login.module.css'
 import { Button, Form, Input, message } from 'antd'
 import { Container, Row, Col, Spinner } from 'react-bootstrap'
 import Link from 'next/link'
-// import Image from 'nex t/image'
+import Image from 'next/image'
 
 export const COOKIES = {
   authToken: 'teorkneen',
@@ -70,7 +70,7 @@ const LoginContainer = () => {
 
   return (
     <div className={`${styles.containerLogin}`}>
-      <Container>
+      {/* <Container>
         <Row className='justify-content-center align-items-center pb-3'>
           <Col
             xs={10}
@@ -91,12 +91,12 @@ const LoginContainer = () => {
                 <h2 className={`${styles.titleLogin}`}>Inciar sesión</h2>
               </div>
               <div>
-                {/* <Image
+                <Image
                   src='/images/logo.png'
                   alt='Negocio'
                   height='50'
                   width='50'
-                /> */}
+                />
               </div>
             </div>
             <Form
@@ -158,7 +158,7 @@ const LoginContainer = () => {
             </div>
           </Col>
         </Row>
-      </Container>
+      </Container> */}
     </div>
   )
 }
