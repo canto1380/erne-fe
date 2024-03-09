@@ -91,12 +91,12 @@ const LoginContainer = () => {
                 <h2 className={`${styles.titleLogin}`}>Inciar sesión</h2>
               </div>
               <div>
-                {/* <Image
+                <Image
                   src='/images/logo.png'
                   alt='Negocio'
                   height='50'
                   width='50'
-                /> */}
+                />
               </div>
             </div>
             <Form
