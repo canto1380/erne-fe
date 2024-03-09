@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { User } from '../../context/userProvider'
 import { validaToken } from '../../utils/validations/validaciones'
 

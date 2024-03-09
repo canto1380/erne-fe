@@ -1,5 +1,3 @@
-import React from 'react'
-
 const MsjError = (props) => {
   return (
     <div className='row mt-4 justify-content-center align-items-center'>

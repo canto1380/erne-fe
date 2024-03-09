@@ -2,10 +2,15 @@ const nextConfig = {
   env: {
     REACT_APP_API: 'http://localhost:4000',
   },
-  babel: {
-    presets: ['@babel/preset-env', '@babel/preset-react'],
-    // Add any additional Babel configurations here
-  },
+  transpilePackages: [
+    'antd',
+    '@ant-design',
+    'rc-util',
+    'rc-pagination',
+    'rc-picker',
+    'rc-notification',
+    'rc-tooltip',
+  ],
 }
 
 export default nextConfig

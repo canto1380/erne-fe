@@ -7,14 +7,14 @@ import styles from './login.module.css'
 import { Button, Form, Input, message } from 'antd'
 import { Container, Row, Col, Spinner } from 'react-bootstrap'
 import Link from 'next/link'
-import Image from 'next/image'
+// import Image from 'nex t/image'
 
 export const COOKIES = {
   authToken: 'teorkneen',
   authId: 'idUser',
 }
 
-const Login = () => {
+const LoginContainer = () => {
   const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (values) => {
@@ -91,12 +91,12 @@ const Login = () => {
                 <h2 className={`${styles.titleLogin}`}>Inciar sesión</h2>
               </div>
               <div>
-                <Image
+                {/* <Image
                   src='/images/logo.png'
                   alt='Negocio'
                   height='50'
                   width='50'
-                />
+                /> */}
               </div>
             </div>
             <Form
@@ -163,4 +163,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginContainer

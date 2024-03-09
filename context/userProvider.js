@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react'
+import { createContext, useReducer } from 'react'
 import { getToken } from '../helpers/herlpers.js'
 
 export const User = createContext()
