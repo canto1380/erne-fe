@@ -1,4 +1,7 @@
 import Cookies from 'js-cookie'
+import serverCookies from 'cookies'
+import clientCookies from 'js-cookie'
+import { destroyCookie } from 'nookies'
 
 export const setDataToken = (data) => {
   return localStorage.setItem('DSTY-$EPP#', JSON.stringify(data))
@@ -21,6 +24,31 @@ export const getToken = () => {
   }
 }
 
+export const getTokenCOOKIES = (ctx) => {
+  let token
+  if (ctx) {
+    const { req, res } = ctx
+    const cookies = new serverCookies(req, res)
+    token = cookies.get('teorkneen')
+  } else {
+    token = clientCookies.get('teorkneen')
+  }
+  return token || null
+}
+
+export const getUserCOOKIES = (ctx) => {
+  let idUser
+  if (ctx) {
+    const { req, res } = ctx
+    const cookies = new serverCookies(req, res)
+    idUser = cookies.get('idUser')
+  } else {
+    idUser = clientCookies.get('idUser')
+  }
+
+  return idUser || null
+}
+
 export const deleteToken = () => {
   localStorage.removeItem('DSTY-$EPP#')
   return localStorage.removeItem('DSTYTOK-$EPP#')
@@ -29,6 +57,10 @@ export const deleteToken = () => {
 export const deleteCookies = () => {
   Cookies.remove('teorkneen')
   Cookies.remove('idUser')
+}
+export const destroyCookies = () => {
+  destroyCookie(null, 'teorkneen')
+  destroyCookie(null, 'idUser')
 }
 
 export const quitarAcentos = (palabra) => {

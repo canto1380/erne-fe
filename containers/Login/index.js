@@ -39,12 +39,9 @@ const LoginContainer = () => {
         Cookies.set(COOKIES.authToken, token, process.env.REACT_APP_API, {
           expires: 1,
         })
-        Cookies.set(
-          COOKIES.authId,
-          (idUsuario, nombreUsuario, role, email),
-          process.env.REACT_APP_API,
-          { expires: 1 }
-        )
+        Cookies.set(COOKIES.authId, email, process.env.REACT_APP_API, {
+          expires: 1,
+        })
         setToken(res?.data?.token)
         setDataToken(res?.data?.datosUsuario)
 

@@ -5,7 +5,7 @@ import { validaToken } from '../../utils/validations/validaciones'
 const Admin = () => {
   const { state } = useContext(User)
   useEffect(() => {
-    validaToken(state)
+    validaToken(state, 'admin/perfil')
   }, [state])
   return (
     <div>

@@ -20,13 +20,23 @@ export const api = async (method, endpoint, data, token) => {
   }
 }
 
-export const apiParams = async (method, params, endpoint, data, token) => {
+export const apiParams = async (
+  method,
+  params,
+  endpoint,
+  data,
+  token,
+  usuario,
+  role
+) => {
   try {
     const res = await axios({
       data,
       params,
       headers: {
         authorization: `${token}`,
+        usuario: `${usuario}`,
+        role: `${role}`,
       },
       method,
       url: `${url}/${endpoint}`,

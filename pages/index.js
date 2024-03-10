@@ -8,7 +8,7 @@ export default function Home({}) {
   const { state } = useContext(User)
 
   useEffect(() => {
-    validaToken(state)
+    validaToken(state, 'admin/perfil')
   }, [state])
   return (
     <Layout>
