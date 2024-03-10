@@ -13,13 +13,18 @@ import { getUsuarios } from '../../utils/queryAPI/usuarios'
 import { useContext, useEffect } from 'react'
 import { User } from '../../context/userProvider'
 import { validaToken } from '../../utils/validations/validaciones'
+import MenuAdmin from '../../containers/Admin'
 
 const Perfil = ({ userInfo }) => {
   const { state } = useContext(User)
   useEffect(() => {
     validaToken(state, 'admin/perfil')
   }, [state])
-  return <div>Perfil</div>
+  return (
+    <>
+      <MenuAdmin idPestania='perfil'/>
+    </>
+  )
 }
 
 export const getServerSideProps = async (ctx) => {

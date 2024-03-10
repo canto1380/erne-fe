@@ -3,16 +3,16 @@ import MenuAdmin from '../../containers/Admin'
 import { validaToken } from '../../utils/validations/validaciones'
 import { User } from '../../context/userProvider'
 
-const Ventas = () => {
+const Sucursales = () => {
   const { state } = useContext(User)
   useEffect(() => {
-    validaToken(state, 'admin/ventas')
+    validaToken(state, 'admin/sucursales')
   }, [state])
   return (
     <>
-      <MenuAdmin idPestania='ventas' />
+      <MenuAdmin idPestania='sucursales' />
     </>
   )
 }
 
-export default Ventas
+export default Sucursales
