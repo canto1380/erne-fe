@@ -8,7 +8,7 @@ import {
   getTokenCOOKIES,
   getUserCOOKIES,
 } from '../../helpers/herlpers'
-import { api } from '../../utils/queryAPI/api'
+import { api, apiParams } from '../../utils/queryAPI/api'
 import { getUsuarios } from '../../utils/queryAPI/usuarios'
 import { useContext, useEffect } from 'react'
 import { User } from '../../context/userProvider'
@@ -35,11 +35,11 @@ export const getServerSideProps = async (ctx) => {
   const idCOOKIES = getUserCOOKIES(ctx)
 
   const params = { search: idCOOKIES }
-  const res = await getUsuarios(params, tokenCOOKIES)
-  // const res = await axios('https://api.github.com/users/hadley/orgs')
+  // const res = await getUsuarios(params, tokenCOOKIES)
+  const res = await apiParams('GET', params, `usuarios/`, '', tokenCOOKIES)
   return {
     props: {
-      userInfo: res?.rows[0],
+      userInfo: res?.data?.rows[0],
     },
   }
   // if (res) {
