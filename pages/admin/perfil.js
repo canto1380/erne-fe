@@ -35,12 +35,11 @@ export const getServerSideProps = async (ctx) => {
   const idCOOKIES = getUserCOOKIES(ctx)
 
   const params = { search: idCOOKIES }
-  // const res = await getUsuarios(params, tokenCOOKIES)
-  const res = await axios('https://api.github.com/users/hadley/orgs')
-  console.log(res)
+  const res = await getUsuarios(params, tokenCOOKIES)
+  // const res = await axios('https://api.github.com/users/hadley/orgs')
   return {
     props: {
-      userInfo: res.data,
+      userInfo: res?.rows[0],
     },
   }
   // if (res) {
