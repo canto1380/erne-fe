@@ -1,6 +1,6 @@
 const nextConfig = {
   env: {
-    REACT_APP_API: 'http://localhost:4000',
+    REACT_APP_API: 'https://proyecto-erne-be.onrender.com',
   },
   transpilePackages: [
     'antd',

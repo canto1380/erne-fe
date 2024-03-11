@@ -50,7 +50,7 @@ const LoginContainer = () => {
           setLoading(false)
         }, 3000)
         setTimeout(() => {
-          window.location.href = '/admin/'
+          window.location.href = '/admin/perfil'
         }, 3000)
       }
       if (res?.response?.status === 404) {
