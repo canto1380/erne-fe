@@ -16,38 +16,44 @@ import { validaToken } from '../../utils/validations/validaciones'
 import MenuAdmin from '../../containers/Admin'
 
 const Perfil = ({ userInfo }) => {
+  console.log(userInfo?.rows[0])
   const { state } = useContext(User)
   useEffect(() => {
     validaToken(state, 'admin/perfil')
   }, [state])
   return (
     <>
-      <MenuAdmin idPestania='perfil'/>
+      <MenuAdmin idPestania='perfil' />
     </>
   )
 }
 
-// export const getServerSideProps = async (ctx) => {
-//   const tokenCOOKIES = getTokenCOOKIES(ctx)
-//   const idCOOKIES = getUserCOOKIES(ctx)
+export const getServerSideProps = async (ctx) => {
+  const tokenCOOKIES = getTokenCOOKIES(ctx)
+  const idCOOKIES = getUserCOOKIES(ctx)
 
-//   const params = { search: idCOOKIES }
-//   const res = await getUsuarios(params, tokenCOOKIES)
-//   if (res) {
-//     const { rows } = res
-//     return {
-//       props: {
-//         userInfo: rows[0],
-//       },
-//     }
-//   } else {
-//     return {
-//       redirect: {
-//         destination: '/login',
-//         permanent: false,
-//       },
-//     }
-//   }
-// }
+  const params = { search: idCOOKIES }
+  const res = await getUsuarios(params, tokenCOOKIES)
+  return {
+    props: {
+      userInfo: res,
+    },
+  }
+  // if (res) {
+  //   const { rows } = res
+  //   return {
+  //     props: {
+  //       userInfo: rows[0],
+  //     },
+  //   }
+  // } else {
+  //   return {
+  //     redirect: {
+  //       destination: '/login',
+  //       permanent: false,
+  //     },
+  //   }
+  // }
+}
 
 export default Perfil
