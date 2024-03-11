@@ -14,9 +14,11 @@ import { useContext, useEffect } from 'react'
 import { User } from '../../context/userProvider'
 import { validaToken } from '../../utils/validations/validaciones'
 import MenuAdmin from '../../containers/Admin'
+import axios from 'axios'
 
 const Perfil = ({ userInfo }) => {
-  console.log(userInfo?.rows[0])
+  // console.log(userInfo?.rows[0])
+  console.log(userInfo)
   const { state } = useContext(User)
   useEffect(() => {
     validaToken(state, 'admin/perfil')
@@ -33,10 +35,12 @@ export const getServerSideProps = async (ctx) => {
   const idCOOKIES = getUserCOOKIES(ctx)
 
   const params = { search: idCOOKIES }
-  const res = await getUsuarios(params, tokenCOOKIES)
+  // const res = await getUsuarios(params, tokenCOOKIES)
+  const res = await axios('https://api.github.com/users/hadley/orgs')
+  console.log(res)
   return {
     props: {
-      userInfo: res,
+      userInfo: res.data,
     },
   }
   // if (res) {
