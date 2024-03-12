@@ -2,7 +2,7 @@ import { apiParams } from './api'
 
 export const getUsuarios = async (params, token, usuario, role) => {
   try {
-    const res = await apiParams('GET', params, `usuarioss`, '', token)
+    const res = await apiParams('GET', params, `usuarios`, '', token)
     console.log(`QUERY:  ${res}`)
     console.log(res)
     return res
