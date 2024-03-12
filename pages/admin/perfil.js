@@ -15,6 +15,7 @@ import { User } from '../../context/userProvider'
 import { validaToken } from '../../utils/validations/validaciones'
 import MenuAdmin from '../../containers/Admin'
 import axios from 'axios'
+import { getProductos } from '../../utils/queryAPI/productos'
 
 const Perfil = ({ userInfo }) => {
   // console.log(userInfo?.rows[0])
@@ -36,10 +37,11 @@ export const getServerSideProps = async (ctx) => {
 
   const params = { search: idCOOKIES }
   // const res = await getUsuarios(params, tokenCOOKIES)
-  const res = await apiParams('GET', params, `usuarios/`, '', tokenCOOKIES)
+  // const res = await apiParams('GET', params, `usuarios/`, '', tokenCOOKIES)
+  const res = await getProductos(undefined, tokenCOOKIES)
   return {
     props: {
-      userInfo: res?.data?.rows[0],
+      userInfo: res?.rows,
     },
   }
   // if (res) {
