@@ -11,15 +11,15 @@ const nextConfig = {
     'rc-notification',
     'rc-tooltip',
   ],
-  async redirects() {
-    return [
-      {
-        source: '/admin',
-        destination: '/admin/perfil',
-        permanent: false,
-      },
-    ]
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/admin',
+  //       destination: '/admin/perfil',
+  //       permanent: false,
+  //     },
+  //   ]
+  // },
 }
 
 export default nextConfig
