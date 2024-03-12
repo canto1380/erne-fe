@@ -47,12 +47,14 @@ export const getServerSideProps = async (ctx) => {
 
   const params = { search: idCOOKIES }
   const res = await getUsuarios(params, tokenCOOKIES)
+  console.log('respuesta desde servidor')
   console.log(res)
+  console.log('respuesta desde servidor fin')
   // const res = await apiParams('GET', params, `usuarios/`, '', tokenCOOKIES)
   return {
     props: {
       token: tokenCOOKIES,
-      userInfo: res?.rows[0],
+      userInfo: res,
     },
   }
   // if (res) {
