@@ -24,6 +24,16 @@ const Perfil = ({ userInfo }) => {
   useEffect(() => {
     validaToken(state, 'admin/perfil')
   }, [state])
+
+  useEffect(() => {
+    gettt()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+
+  const gettt = async() => {
+    const aa = await getProductos(undefined, userInfo)
+    console.log(aa)
+  }
   return (
     <>
       <MenuAdmin idPestania='perfil' />
@@ -41,7 +51,7 @@ export const getServerSideProps = async (ctx) => {
   const res = await getProductos(undefined, tokenCOOKIES)
   return {
     props: {
-      userInfo: res?.rows,
+      userInfo: tokenCOOKIES,
     },
   }
   // if (res) {
