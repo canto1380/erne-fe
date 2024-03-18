@@ -22,7 +22,7 @@ const Perfil = ({ userInfo }) => {
   }, [state])
   return (
     <>
-      <MenuAdmin idPestania='perfil' user={userInfo}/>
+      <MenuAdmin idPestania='perfil' user={userInfo} />
     </>
   )
 }
@@ -34,21 +34,26 @@ export const getServerSideProps = async (ctx) => {
   const params = { search: idCOOKIES }
   const res = await getUsuarios(params, tokenCOOKIES)
 
-  if (res) {
-    const { rows } = res
-    return {
-      props: {
-        userInfo: rows[0],
-      },
-    }
-  } else {
-    return {
-      redirect: {
-        destination: '/login',
-        permanent: false,
-      },
-    }
+  return {
+    props: {
+      userInfo: res?.rows[0],
+    },
   }
+  // if (res) {
+  //   const { rows } = res
+  //   return {
+  //     props: {
+  //       userInfo: rows[0],
+  //     },
+  //   }
+  // } else {
+  //   return {
+  //     redirect: {
+  //       destination: '/login',
+  //       permanent: false,
+  //     },
+  //   }
+  // }
 }
 
 export default Perfil
