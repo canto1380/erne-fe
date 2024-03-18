@@ -13,7 +13,7 @@ import StockContainer from './stock'
 import ProductosContainer from './productos'
 import ComprasContainer from './compras'
 
-const MenuAdmin = ({ idPestania }) => {
+const MenuAdmin = ({ idPestania, user }) => {
   const [inactivo, setInactivo] = useState(false)
   const [dataAuth, setDataAuth] = useState([])
 
@@ -21,6 +21,7 @@ const MenuAdmin = ({ idPestania }) => {
     setDataAuth(getDataToken)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+  console.log(user)
 
   let html
   switch (idPestania) {

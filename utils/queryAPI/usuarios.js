@@ -5,13 +5,11 @@ export const getUsuarios = async (params, token, usuario, role) => {
     const res = await apiParams('GET', params, `usuarios`, '', token)
     console.log(`QUERY:  ${res}`)
     console.log(res)
-    return res
-    // if (res.status === 200) {
-    //   const data = res?.data
-    //   return data
-    // }
+    if (res.status === 200) {
+      const data = res?.data
+      return data
+    }
   } catch (error) {
-    console.log(error)
     return error
   }
 }
