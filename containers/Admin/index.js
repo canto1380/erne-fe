@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Container } from 'react-bootstrap'
 import { getDataToken } from '../../helpers/herlpers'
-import { html } from '../../components/Sidebar/ItemsSidebar'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import styles from '../../components/Sidebar/sidebar.module.css'
 import PerfilContainer from './perfil'
@@ -12,16 +11,36 @@ import SucursalesContainer from './sucursales'
 import StockContainer from './stock'
 import ProductosContainer from './productos'
 import ComprasContainer from './compras'
+import Unauthorized from '../../components/Unauthorized'
+import { User } from '../../context/userProvider'
+import { getUsuarios } from '../../utils/queryAPI/usuarios'
 
-const MenuAdmin = ({ idPestania, user }) => {
+const MenuAdmin = ({ idPestania }) => {
   const [inactivo, setInactivo] = useState(false)
   const [dataAuth, setDataAuth] = useState([])
+  const [modalUnauthorized, setModalUnauthorized] = useState(false)
+
+  const { state } = useContext(User)
 
   useEffect(() => {
-    setDataAuth(getDataToken)
+    datosUsuario()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-  console.log(user)
+  }, [state])
+  const datosUsuario = async () => {
+    const idUser = getDataToken()
+    console.log(idUser)
+    if (idUser !== null) {
+      const params = { search: idUser.idUsuario }
+      const data = await getUsuarios(params, state.userToken)
+      if (data.rows.length === 0) {
+        setModalUnauthorized(true)
+      } else {
+        setDataAuth(data.rows[0])
+      }
+    } else {
+      setModalUnauthorized(true)
+    }
+  }
 
   let html
   switch (idPestania) {
@@ -97,11 +116,11 @@ const MenuAdmin = ({ idPestania, user }) => {
       />
       <Container fluid className='containerAdminData'>
         {html}
-        {/* {modalUnauthorized && (
+        {modalUnauthorized && (
           <div className=''>
             <Unauthorized />
           </div>
-        )} */}
+        )}
       </Container>
     </Container>
   )
